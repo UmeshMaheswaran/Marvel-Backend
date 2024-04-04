@@ -2,10 +2,18 @@ require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 const axios = require("axios");
+const mongoose = require("mongoose");
+
+mongoose.connect("mongodb://localhost/comics");
+
+const comicsRoutes = require("./routes/comics");
+const comicsidRoutes = require("./routes/comicsid");
 
 const app = express();
 app.use(cors());
 app.use(express.json());
+app.use(comicsRoutes);
+app.use(comicsidRoutes);
 
 app.get("/characters", async (req, res) => {
   try {
