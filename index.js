@@ -7,14 +7,14 @@ const mongoose = require("mongoose");
 mongoose.connect("mongodb://localhost/comics");
 
 const comicsRoutes = require("./routes/comics");
-const comicsidRoutes = require("./routes/comicsid");
+
 const characterIdRoutes = require("./routes/characterid");
 
 const app = express();
 app.use(cors());
 app.use(express.json());
 app.use(comicsRoutes);
-app.use(comicsidRoutes);
+
 app.use(characterIdRoutes);
 
 app.get("/characters", async (req, res) => {
