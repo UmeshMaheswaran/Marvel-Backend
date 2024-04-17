@@ -8,12 +8,12 @@ router.get("/comics", async (req, res) => {
   console.log("route =>", "/comics");
 
   try {
-    const title = req.query.name || "";
+    const title = req.query.title || "";
     const skip = req.query.skip || "0";
     const limit = req.query.limit || "100";
 
     const response = await axios.get(
-      `https://lereacteur-marvel-api.herokuapp.com/comics?apiKey=${process.env.API_KEY}&name=${title}&skip=${skip}&limit=${limit}`
+      `https://lereacteur-marvel-api.herokuapp.com/comics?apiKey=${process.env.API_KEY}&title=${title}&skip=${skip}&limit=${limit}`
     );
     console.log(response.data);
     res.json(response.data);
