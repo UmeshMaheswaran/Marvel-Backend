@@ -12,7 +12,6 @@ const comicsIdRoutes = require("./routes/comicsId");
 const characterIdRoutes = require("./routes/characterid");
 
 const UserRoutes = require("./routes/user");
-const LoginRoutes = require("./routes/login");
 
 const app = express();
 app.use(cors());
@@ -22,7 +21,6 @@ app.use(characterIdRoutes);
 app.use(comicsIdRoutes);
 
 app.use(UserRoutes);
-app.use(LoginRoutes);
 
 app.get("/characters", async (req, res) => {
   try {
